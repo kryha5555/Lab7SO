@@ -1,0 +1,4 @@
+#!/bin/bash
+clear
+
+ls /bin -al | grep '^-' | awk '{print $1, $9}' | cut -c 4,7,10-

@@ -1,0 +1,21 @@
+#!/bin/bash
+clear
+
+echo "Input directory: "
+read dir
+
+
+
+echo "Wolna pamiec na dysku :"
+df -h $dir | grep "mnt" | awk '{print $1, $4}' 
+
+usage=$(df $dir | grep "mnt" | awk '{print $5}' | cut -c 1,2 )
+
+if [ $usage -gt 50 ]
+then
+echo "Na partycji jest duzo miejsca"
+elif [ $usage -lt 10 ]
+then
+echo "Na partycji jest malo miejsca"
+fi
+

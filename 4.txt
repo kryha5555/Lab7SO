@@ -1,0 +1,14 @@
+#!/bin/bash
+clear
+
+echo "Wolna pamiec na dysku:"
+df -h| grep "mnt" | awk '{print $1, $4}' 
+
+echo
+echo "Wolna pamiec RAM:"
+ram=$(cat /proc/meminfo | grep "^MemFree"| awk '{print $2}')
+echo $ram KB
+
+echo
+echo "Procesory:"
+cat /proc/cpuinfo | grep "^processor\|^model name"

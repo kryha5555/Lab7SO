@@ -1,0 +1,11 @@
+#!/bin/bash
+clear
+echo "Input directory: "
+read dir
+
+if ls $dir &> /dev/null ;
+then 
+	ls $dir  -al | grep '^-' | awk '{print $1, $9}' | cut -c 4,7,10-
+else
+	echo Directory not found
+fi
