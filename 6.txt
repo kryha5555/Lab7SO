@@ -1,0 +1,16 @@
+#!/bin/bash
+clear
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+else
+	userid=$(id -u $1 2>/dev/null)
+	if [ -z "$userid" ]
+		then
+		echo "No such user"
+	else
+		echo User $1 ID is $userid
+		#tu ma sie cos dziac
+	fi
+fi
